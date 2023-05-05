@@ -6,7 +6,6 @@ export const Footer = () => {
 
     return (
         <div className='footerDesign'> 
-            footer
         </div>
     )
 }

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
+
+import loading from '../../../public/loading.gif'
 import { bringCharacters } from "../../services/apiCalls";
 import { CharacterCard } from "../../components/CharacterCard/CharacterCard";
 
@@ -23,34 +25,42 @@ export const Home = () => {
 
   useEffect(() => {
     if (characters.length === 0) {
-      bringCharacters()
-        .then((resultado) => {
-          if (resultado.data.results.length > 0) {
-            setCharacters(resultado.data.results);
-          }
-        })
-        .catch((error) => console.log(error));
+      setTimeout(() => {
+        bringCharacters()
+          .then((resultado) => {
+            if (resultado.data.results.length > 0) {
+              setCharacters(resultado.data.results);
+            }
+          })
+          .catch((error) => console.log(error));
+      }, 1500);
     }
   }, [characters]);
 
   return (
     <div className="homeDesign">
-      {characters.length > 0 && (
+      {characters.length > 0 ? (
         /*aqui mapeare a los personajes porque ya han venido de la API
         y por eso hemos entrado en este condicional*/
 
         <div className="charactersDesign">
           {characters.map((person) => {
-            return <div key={person.id} onClick={()=>console.log(person)}>
-                <CharacterCard 
-                    name={person.name}
-                    status={person.status}
-                    species={person.species}
-                    gender={person.gender}
-                    image={person.image}      
+            return (
+              <div key={person.id} onClick={() => console.log(person)}>
+                <CharacterCard
+                  name={person.name}
+                  status={person.status}
+                  species={person.species}
+                  gender={person.gender}
+                  image={person.image}
                 />
-            </div>;
+              </div>
+            );
           })}
+        </div>
+      ) : (
+        <div>
+          <img src={loading} alt="spinnerLoading"/>
         </div>
       )}
     </div>
