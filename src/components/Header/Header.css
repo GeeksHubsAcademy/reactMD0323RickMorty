@@ -1,0 +1,12 @@
+
+.headerDesign {
+
+    height: 14vh;
+    width: 100vw;
+
+    background-color: mediumseagreen;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
