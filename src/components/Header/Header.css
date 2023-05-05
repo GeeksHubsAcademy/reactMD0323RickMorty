@@ -10,3 +10,18 @@
     justify-content: flex-end;
     align-items: flex-end;
 }
+
+.link {
+
+    font-weight: bold;
+    color: white;
+    transition: 0.5s;
+    margin: 0.5em;
+    cursor: pointer;
+}
+
+.link:hover {
+
+    color: grey;
+    transition: 0.5s;
+}

@@ -4,9 +4,16 @@
     height: 78vh;
     width: 100vw;
 
-    background-color: darkred;
+    background-color: gainsboro;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.charactersDesign {
+
+    display: flex;
+    flex-wrap: wrap;
+
 }
