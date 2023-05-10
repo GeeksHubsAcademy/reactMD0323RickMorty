@@ -13,7 +13,7 @@ export const userSlice = createSlice({
           ...action.payload
         }
       },
-      userout: (state, action) => {
+      logout: (state, action) => {
         return {
           ...state,
           ...action.payload
@@ -27,7 +27,7 @@ export const userSlice = createSlice({
 //exporto las ACCIONES.....
 
 //Exporto las acciones para el modo ESCRITURA
-export const { login, userout } = userSlice.actions;
+export const { login, logout } = userSlice.actions;
 
 
 //exporto el método para el modo LECTURA

@@ -7,13 +7,17 @@ import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 //Conexion a redux en modo escritura......
-import { useDispatch } from "react-redux";
-import { login } from "../userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { login, userData } from "../userSlice";
 
 export const Login = () => {
-  //Instanciamos RDX...
+  //Instanciamos RDX en modo escritura
 
   const dispatch = useDispatch();
+
+  //Instanciamos RDX en modo lectura
+
+  const userRdxData = useSelector(userData);
 
   //Instanciamos Navigate
 
@@ -33,6 +37,18 @@ export const Login = () => {
       [e.target.name]: e.target.value,
     }));
   };
+
+  useEffect(()=>{
+    if(userRdxData.credentials.token){
+      navigate("/")
+    };
+  },[]);
+
+  // useEffect(() => {
+  //   console.log(credentials);
+  // }, [credentials]);
+
+
 
   const logMeFunction = () => {
     loginMeAgain(credentials)
@@ -57,10 +73,6 @@ export const Login = () => {
       })
       .catch((error) => console.log(error));
   };
-
-  useEffect(() => {
-    console.log(credentials);
-  }, [credentials]);
 
   return (
     <div className="loginDesign">
