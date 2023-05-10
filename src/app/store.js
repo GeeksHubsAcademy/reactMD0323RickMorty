@@ -1,18 +1,19 @@
 
 
-import { configureStore } from '@reduxjs/toolkit';
-import userSlice from '../layouts/userSlice';
-// import detailSlice from '../pages/detailSlice';
 
+import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
+
+import userSlice from '../layouts/userSlice';
+import detailSlice from '../layouts/detailSlice';
 
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 
 const reducers = combineReducers({
     user: userSlice,
-    // detail: detailSlice
+    detail: detailSlice
 })
 
 const persistConfig = {

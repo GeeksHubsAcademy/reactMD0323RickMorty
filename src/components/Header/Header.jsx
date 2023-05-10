@@ -49,6 +49,12 @@ export const Header = () => {
         </div>
       ) : (
         <div>
+          {datosUserRedux?.credentials?.rol === "admin" &&
+          
+          <div className="link" onClick={() => navigate("/admin")}>
+            admin
+          </div>
+          }
           <div className="link" onClick={() => navigate("/")}>
             home
           </div>
