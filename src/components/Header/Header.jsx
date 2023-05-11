@@ -59,7 +59,7 @@ export const Header = () => {
             home
           </div>
           <div className="link" onClick={() => navigate("/profile")}>
-            {datosUserRedux.credentials.rol}
+            {datosUserRedux.credentials.user.email}
           </div>
           <div className="link" onClick={() => navigate("/newappointments")}>
             nueva cita

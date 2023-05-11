@@ -54,16 +54,16 @@ export const Login = () => {
     loginMeAgain(credentials)
       .then((resultado) => {
         
-        const decoded = jwt_decode(resultado);
+        const decoded = jwt_decode(resultado.data.token);
 
         const datos = {
-            token: resultado,
-            rol: decoded.role
+            token: resultado.data.token,
+            user: decoded
         }
         //Una vez tengo el token, lo guardo con el dispatch
         dispatch(login({ credentials: datos }));
 
-        setMessage(`Bienvenido de nuevo mr.${decoded.role}`);
+        setMessage(`Bienvenido de nuevo mr.${decoded.email}`);
         //Nos vamos de aqui....
 
         setTimeout(() => {

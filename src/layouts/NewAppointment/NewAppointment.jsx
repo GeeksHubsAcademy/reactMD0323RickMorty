@@ -3,12 +3,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./NewAppointment.css";
 import { bringDentists } from "../../services/apiCalls";
 
+import { useSelector } from "react-redux";
+import { userData } from "../userSlice";
 //Bootstrap
 import Dropdown from "react-bootstrap/Dropdown";
+import { Calendar } from "../../components/Calendar/Calendar";
 
 export const NewAppointment = () => {
+  //Instanciamos REDUX en modo lectura
+
+  const userRdxData = useSelector(userData);
+
   const [dentists, setDentists] = useState([]);
   const [orderInfo, setOrderInfo] = useState({
+    customerId: userRdxData.credentials.user.id,
     professionalId: "",
   });
 
@@ -61,6 +69,7 @@ export const NewAppointment = () => {
           </Dropdown.Menu>
         </Dropdown>
       )}
+    <Calendar />
     </div>
   );
 };

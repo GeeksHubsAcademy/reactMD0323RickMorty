@@ -6,11 +6,20 @@ export const bringCharacters = async () => {
     return await axios.get("https://rickandmortyapi.com/api/character/?page=25");
 };
 
-export const loginMeAgain = async (credenciales) => {
+export const loginMeAgain = async (credentials) => {
 
     // return await axios.post(`endpoint`)
 
-    return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NTE2NmEzZDUzMDYwODRlY2U1M2I5NCIsInJvbGUiOiJkZW50aXN0IiwiaWF0IjoxNjgzMDU2NDcyLCJleHAiOjE2ODMxNDI4NzJ9.Vl1QcuSy1D0FlgIhbDxFeoqm7eM6ZCdncjxdAJgAT38";
+    // return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NTE2NmEzZDUzMDYwODRlY2U1M2I5NCIsInJvbGUiOiJkZW50aXN0IiwiaWF0IjoxNjgzMDU2NDcyLCJleHAiOjE2ODMxNDI4NzJ9.Vl1QcuSy1D0FlgIhbDxFeoqm7eM6ZCdncjxdAJgAT38";
+
+    const res = await axios.post('https://dentistclinicbackend-production.up.railway.app/user/login', credentials)
+    // const data = {
+    //     credentials: {
+    //         "token": res.data.token,
+    //         "user": jwt_decode(res.data.token)
+    //     }
+    // }
+    return res
 }
 
 export const bringUserProfile = async () => {
@@ -40,5 +49,5 @@ export const bringDentists = async () => {
   };
 
   return await axios.get(`https://dentistclinicbackend-production.up.railway.app/user/dentist`, config);
-  
+
 }
