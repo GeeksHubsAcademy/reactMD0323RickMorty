@@ -1,0 +1,11 @@
+
+.appointmentsDesign {
+    height: 78vh;
+    width: 100vw;
+
+    background-color: gainsboro;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

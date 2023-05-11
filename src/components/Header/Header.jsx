@@ -36,7 +36,7 @@ export const Header = () => {
   return (
     <div className="headerDesign">
       {!datosUserRedux?.credentials?.token ? (
-        <div>
+        <>
           <div className="link" onClick={() => navigate("/")}>
             home
           </div>
@@ -46,9 +46,9 @@ export const Header = () => {
           <div className="link" onClick={() => navigate("/register")}>
             register
           </div>
-        </div>
+        </>
       ) : (
-        <div>
+        <>
           {datosUserRedux?.credentials?.rol === "admin" &&
           
           <div className="link" onClick={() => navigate("/admin")}>
@@ -61,8 +61,14 @@ export const Header = () => {
           <div className="link" onClick={() => navigate("/profile")}>
             {datosUserRedux.credentials.rol}
           </div>
+          <div className="link" onClick={() => navigate("/newappointments")}>
+            nueva cita
+          </div>
+          <div className="link" onClick={() => navigate("/appointments")}>
+            citas
+          </div>
           <div className="link" onClick={()=> logMeOut()}>logout</div>
-        </div>
+        </>
       )}
     </div>
   );

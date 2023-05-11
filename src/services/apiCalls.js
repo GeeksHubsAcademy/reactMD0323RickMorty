@@ -24,7 +24,21 @@ export const bringUserProfile = async () => {
         headers: { 
           'Authorization': 'Bearer '+ token,  
         }
-      };
+    };
 
     return await axios.get(`https://backendclinicadental-production.up.railway.app/user/${id}`, config);
+}
+
+export const bringDentists = async () => {
+
+  let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhnaW5vcnlAZ21haWwuY29tIiwiaWQiOiI2NDRhOTkxNGYwYTc0ZGIyNTQwMzFjYTUiLCJyb2wiOiJDbGllbnRlIiwiaWF0IjoxNjgzNzkyODU4fQ.8eRYjmC0o1QjzqUo4qRj630jrTQOLVNKlc-HqVCbnSo';
+
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+
+  return await axios.get(`https://dentistclinicbackend-production.up.railway.app/user/dentist`, config);
+  
 }
